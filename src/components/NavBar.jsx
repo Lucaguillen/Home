@@ -6,8 +6,8 @@ import CartWidget from './CartWidget'
 const NavBar = () => {
   return (
     <Flex bg="gray">
-      <Box p='4' >
-        Nombre de la tienda
+      <Box className='logoTexto' p='4' >
+        StreetWear 
       </Box>
       <Spacer/>
       <Box p="4">

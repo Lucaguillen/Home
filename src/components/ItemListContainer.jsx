@@ -1,7 +1,7 @@
 const ItemListContainer = ({greeting}) => {
   return (
     <div>
-        <p>
+        <p className="greeting">
             {greeting}
         </p>
     </div>

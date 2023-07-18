@@ -7,7 +7,7 @@ const CartWidget = () => {
         <h4>Carrito</h4>
         </Box>
         <Box ml="2">
-        <p>1</p>
+        <p className="numeroCarrito" >1</p>
         </Box>
     </Flex>
   )

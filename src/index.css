@@ -1,0 +1,21 @@
+.body{
+    background-color: whitesmoke;
+}
+.numeroCarrito{
+    color: red;
+    border: 2px solid red;
+    border-radius: 50%;
+    padding: 0px 6px 0px 6px ;
+    font-size: 13px;
+    font-weight: bold;
+}
+.greeting{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+.logoTexto{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
