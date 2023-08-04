@@ -2,16 +2,21 @@ import React from 'react'
 import {Menu, MenuButton, MenuItem, MenuList, IconButton, Flex, Box, Spacer} from "@chakra-ui/react"
 import {HamburgerIcon } from '@chakra-ui/icons'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <Flex bg="gray">
       <Box className='logoTexto' p='4' >
+        <Link to={"/"} >
         StreetWear 
+        </Link>
       </Box>
       <Spacer/>
       <Box p="4">
+        <Link to={"/Cart"}> 
         <CartWidget/>
+        </Link>
       </Box>
       <Box m="2">
         <Menu>
@@ -23,19 +28,14 @@ const NavBar = () => {
             />
             <MenuList>
                 <MenuItem>
-                Calzado
+                  <Link to={`/category/${"electrodomesticos"}`}>
+                    Electrodomesticos
+                  </Link>
                 </MenuItem>
                 <MenuItem>
-                Remeras
-                </MenuItem>
-                <MenuItem>
-                buzos
-                </MenuItem>
-                <MenuItem>
-                Camperas
-                </MenuItem>
-                <MenuItem>
-                Pantalones
+                  <Link to={`/category/${"cocina"}`}>
+                    Cocina
+                  </Link>
                 </MenuItem>
             </MenuList>
         </Menu>
