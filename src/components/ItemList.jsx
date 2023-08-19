@@ -2,6 +2,8 @@ import React from 'react'
 import Item from './Item'
 
 const ItemList = ({productos}) => {
+  
+  
   return (
     <div>
       {productos.map((p)=>{
@@ -11,7 +13,7 @@ const ItemList = ({productos}) => {
           id={p.id}
           name={p.name}
           description={p.description}
-          pictureUrl={p.pictureUrl}
+          pictureUrl={p.picture}
           />
         )
       })}

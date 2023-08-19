@@ -1,50 +1,33 @@
-import React from 'react'
-import imgSilla from "../img/silla.jpg"
+import React, { useEffect, useState } from 'react'
 import ItemList from "./ItemList"
 import { useParams } from 'react-router-dom'
-
-
+import {collection, getDocs, getFirestore} from "firebase/firestore"
 
 const ItemListContainer = () => {
+  const [products, setProducts] = useState([])
   const {category} = useParams()
-  const productos = [
-    {id:1,name:"Producto A", description:"Descripcion A",price: 10000,pictureUrl:imgSilla, category:"electrodomesticos"},
-    {id:2,name:"Producto B", description:"Descripcion B",price: 10000,pictureUrl:imgSilla, category:"electrodomesticos"},
-    {id:3,name:"Producto C", description:"Descripcion C",price: 10000,pictureUrl:imgSilla, category:"electrodomesticos"},
-    {id:4,name:"Producto D", description:"Descripcion D",price: 10000,pictureUrl:imgSilla, category:"cocina" },
-    {id:5,name:"Producto E", description:"Descripcion E",price: 10000,pictureUrl:imgSilla, category:"cocina" },
-    {id:6,name:"Producto F", description:"Descripcion F",price: 10000,pictureUrl:imgSilla, category:"cocina" }
-  ]
+  
 
-  const getProductos = () => {
-    return new Promise ((res, rej) => {
-      if (productos.length > 0){
-        setTimeout(() => { 
-          res(productos)  
-        }, 2000);
-      }else{
-        rej(new Error ("Error al buscar datos"))
-      }
-    })
-  }
+  useEffect(()=>{
+    const db = getFirestore()
 
-  async function FetchingData(){
-    try {
-      const productosFetched = await getProductos()
-      console.log(productosFetched)
-    } catch (error){
-      console.warn(error)
-    }
-  }
-  FetchingData()
+    const itemsCollection = collection(db,"productos")
+    getDocs(itemsCollection).then((snapshot)=> {
+      const docs = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }))
+      setProducts(docs)
+    });    
+  }, [])
+  
 
-  const filteredProducts = productos.filter((producto)=> producto.category === category)
-
-
+  const filteredProducts = products.filter((p)=> p.category === category)
 
   return (
-    <ItemList
-    productos={filteredProducts}/>
+    <div>
+      {category ? <ItemList productos={filteredProducts}/> : <ItemList productos={products}/>}
+    </div>
   )
 }
 

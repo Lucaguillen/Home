@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const Item = ({name,description,pictureUrl,id}) => {
+  console.log(id)
   return (
     <Card align='center'>
         <CardHeader>

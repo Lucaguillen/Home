@@ -6,25 +6,33 @@ import Home from "./components/Home"
 import About from "./components/About"
 import Contact from "./components/Contact"
 import Cart from "./components/Cart"
+import ShoppingCartProvider from "./context/SoppingCartContext"
+import FormOrder from "./components/FormOrder"
+
+
 
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar/>
+      <ShoppingCartProvider>
 
-      <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/About" element={<About/>}/>
-        <Route exact path="/Contact" element={<Contact/>}/>
-        <Route exact path="/Cart" element={<Cart/>}/>
-        <Route exact path="/category/:category" element={<ItemListContainer/>}/>
-        <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
+        <NavBar/>
+
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/About" element={<About/>}/>
+          <Route exact path="/Contact" element={<Contact/>}/>
+          <Route exact path="/Cart" element={<Cart/>}/>
+          <Route exact path="/category/:category" element={<ItemListContainer/>}/>
+          <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
+          <Route exact path="/FormOrder" element={<FormOrder/>}/>
+          
 
 
 
-      </Routes>
-      
-      
+
+        </Routes>
+      </ShoppingCartProvider>
     </BrowserRouter>
   )
 } 

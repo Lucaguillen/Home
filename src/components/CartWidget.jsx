@@ -1,15 +1,15 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { useContext } from "react"
+import { CartContext } from "../context/SoppingCartContext"
+
 
 const CartWidget = () => {
+  const [, , , , cantidadproductos] = useContext(CartContext);
+
+  console.log(cantidadproductos)
   return (
-    <Flex>
-        <Box> 
-        <h4>Carrito</h4>
-        </Box>
-        <Box ml="2">
-        <p className="numeroCarrito" >1</p>
-        </Box>
-    </Flex>
+    <p className="buttonCart">
+      {cantidadproductos}
+    </p>
   )
 }
 
