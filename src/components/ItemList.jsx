@@ -5,15 +5,16 @@ const ItemList = ({productos}) => {
   
   
   return (
-    <div>
+    <div className="itemListContainer">
       {productos.map((p)=>{
         return(
           <Item
           key={p.id}
           id={p.id}
           name={p.name}
-          description={p.description}
+          description={p.descriptionDetail}
           pictureUrl={p.picture}
+          price={p.price}
           />
         )
       })}

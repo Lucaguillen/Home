@@ -1,31 +1,58 @@
 /* generales */
 .body{
-    background-color: whitesmoke;
+    background-color: white;
     font-family: 'Raleway', sans-serif;
 }
 /* navbar */
 .home {
-    background-image: url("./img/banner.jpg");
+    background-image: url("./img/banner.png");
     background-repeat: no-repeat;
-    background-position: center;
-    min-height: 800px;
+    height: 740px;
 }
-
 .navBarContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 .logo{
     font-weight: bold ;
     color: red;
+    font-size: 30px;
+    margin-left: 20px;
+}
+.searchbarInput{
+    width: 1000px;
+    height: 33px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 20px;
+    padding-left: 15px;
+    outline: none; 
+}
+.buttonMiCuenta{
+    font-size: large;
+    font-weight: 400;
+}
+.buttonMiCuenta:hover{
+    color: red;
+    cursor: pointer;
+}
+.buttonCart{
+    margin-left: 5px;
+    color: red;
+    font-size: large;
+}
+.cartButtonContainer{
+    display: flex;     
 }
 .navButtonContainer{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
-
 .categoryContainer{
     display:flex;
     padding: 0px 10px 0px 10px;
@@ -38,18 +65,196 @@
 }
 .textAvatar{
     font-weight: 500;
-
 }
 .categoryAvatar{
-    border-radius: 50%;
-
-    
+    border-radius: 50%;  
 }
 .avatarContainer:hover .textAvatar {
     color: red; 
 }
-  
 .avatarContainer:hover .categoryAvatar {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5); 
 }
-  
+/* itemListContainer */
+.itemListContainer{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    justify-items: center;
+    align-items: center;
+    row-gap: 20px;
+   
+    
+}  
+.cardItemListContainer{
+    width: 500px;
+    height: 700px;
+}
+.volverAlhome{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bolder;
+    color: red;
+    margin-top: 10px;
+}
+.todosLosProductos{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color: red;
+    margin-top: 10px;
+}
+.titulocardcontainer{
+    display: flex;
+    justify-content: center;
+}
+.titulocard{
+    font-weight:500;
+}
+.pricecard{
+    font-weight: 500;
+}
+.dolar{
+    color: red;
+}
+/* ITEM DETAIL */
+.tituloitemdetail{
+    font-weight: 600;
+    font-size: 25px;
+}
+.imgitemdetail{
+    margin-top: -25px;
+    width: 400px;
+}
+.descriptionitemdetail{
+    margin-top: -50px;
+    font-weight: 500;
+}
+.textcontaineritemdetail{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+}
+.priceitemdetail{
+    font-size: larger;
+}
+.btncontainer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.countGoCartBtn{
+    font-size: x-large;
+}
+.countGoCartBtn:hover{
+    color: rgb(107, 4, 4);
+}
+/* ITEMCOUNT */
+.countControls{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    
+}
+.number{
+    color: red;
+    font-size: 20px;
+}
+/* cart */
+.cartContainer{
+   padding: 25px; 
+   display: flex;
+   flex-direction: column;
+    
+}
+.cardCartContainer{
+    margin-bottom: 10px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.imgcardcart{
+    margin-left: 10px;
+}
+.removerunidad{
+    color: red;
+    margin-right: 30px;
+}
+.unidadescardcart, .pricecardcart, .namecardcart{
+    font-weight: 600;
+    font-size: 16px;
+}
+.borrartodo{
+    color: red;
+    font-size: 30px;
+}
+
+.buttonscart{
+    
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.cartvaciocontainer{
+    box-shadow: 4px 6px 11px 4px rgba(255, 1, 1, 0.1);
+    width: 900px;
+    height: auto;
+    display: flex;
+    margin: auto;
+    margin-top: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+}
+.cartvaciotext{
+    font-size: 40px;
+    font-weight: bolder;
+    color: red;
+    margin-top: 10px;
+}
+.shadow{
+    box-shadow: 4px 6px 11px 4px rgba(255, 1, 1, 0.1) !important;
+    width: 900px;
+    height: max-content;
+    margin: auto;
+    margin-top: 10px;
+}
+/* formorder */
+.formcontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.input{
+    width: 1000px;
+    height: 33px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 20px;
+    padding-left: 15px;
+    outline: none; 
+}
+.agradecimientocontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 190px;
+    padding: 10px;
+}
+
+

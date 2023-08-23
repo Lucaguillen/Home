@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from "./ItemList"
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {collection, getDocs, getFirestore} from "firebase/firestore"
 
 const ItemListContainer = () => {
@@ -25,7 +25,12 @@ const ItemListContainer = () => {
   const filteredProducts = products.filter((p)=> p.category === category)
 
   return (
-    <div>
+    <div >
+      { category ? 
+      <Link to="/">
+        <h1 className='volverAlhome'>Volver a todos los productos</h1>
+      </Link>  
+      : <h1 className='todosLosProductos'>Todos los productos</h1>}
       {category ? <ItemList productos={filteredProducts}/> : <ItemList productos={products}/>}
     </div>
   )

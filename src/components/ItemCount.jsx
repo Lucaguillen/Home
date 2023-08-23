@@ -1,5 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/SoppingCartContext'
+import { Button } from '@chakra-ui/react'
+import { ArrowForwardIcon,MinusIcon,AddIcon } from "@chakra-ui/icons";
+
+
 
 const ItemCount = ({stock, id, price, name, handleOnAdd, picture}) => {
     /* botones de suma y resta */
@@ -37,23 +41,23 @@ const ItemCount = ({stock, id, price, name, handleOnAdd, picture}) => {
   return (
     <div className='countContainer'>
             <div className='countControls'>
-                <button className='resta' onClick={resta}>-</button>
+                <Button size='xs' colorScheme='blackAlpha' className='resta' onClick={resta}>{<MinusIcon/>}</Button>
                 <h3 className='number'>{cantidad}</h3>
-                <button className='suma' onClick={suma}>+</button>
+                <Button size='xs' colorScheme='blackAlpha' className='suma' onClick={suma}>{<AddIcon/>}</Button>
             </div>
             <div>
                 {
                     cantidad === 0? (
                         
-                        <button disabled className='buttonAddCart'>
-                            Agregar al carrito
-                        </button>
+                        <Button mb={3} rightIcon={<ArrowForwardIcon/>} variant='outline' colorScheme='gray'>
+                        Agregar al Carrito
+                        </Button>
                         
                     ) : (
                         
-                        <button className='buttonAddCart' onClick={()=> {addToCart(); handleOnAdd(cantidad)}}>
-                            Agregar al carrito
-                        </button>
+                        <Button mb={3} rightIcon={<ArrowForwardIcon/>} variant='outline' colorScheme='red' onClick={()=> {addToCart(); handleOnAdd(cantidad)}}>
+                            Agregar al Carrito
+                        </Button>
                         
                     )
                 }

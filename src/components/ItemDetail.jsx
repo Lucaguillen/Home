@@ -1,38 +1,48 @@
-import React, { useContext, useState } from 'react'
-import { Card,CardHeader, CardBody, Text } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Card,CardHeader, CardBody, Text, Button } from '@chakra-ui/react'
 import { Link, useParams } from 'react-router-dom'
 import ItemCount from './ItemCount'
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+
 
 
 
 const ItemDetail = ({productos}) => {
   const {id} = useParams()
-  /* const filteredProducts = productos.filter((producto)=> producto.id == id) */
   const [cantidadAdded, setCantidadAdded] = useState(0)
  
   const handleOnAdd = (cantidad) => {
     setCantidadAdded(cantidad)
-    console.log(cantidad)
+    
     
     
   }
 
   return (
     <div key={productos.id}>
-      <Card align='center'>
+      <Card className='shadow'  align='center'>
         <CardHeader>
-          <Text>{productos.name}</Text>
-          <img src={productos.picture} alt="" width="100" height="100"/>
+          <Text className='tituloitemdetail'>{productos.name}</Text>
         </CardHeader>
-        <CardBody>
-            <Text>{productos.description}</Text>
+        <img className='imgitemdetail' src={productos.picture} alt=""/>
+        <CardBody className='textcontaineritemdetail'>
+          <Text className='descriptionitemdetail'>{productos.descriptionDetail}</Text>
+          <p className='priceitemdetail'>Precio por unidad: <span className='dolar'>$</span>{productos.price}</p>
         </CardBody>
         {
           cantidadAdded > 0 ?(
-            <>
-            <Link to={"/cart"} className='countGoCartBtn'>Terminar compra</Link>
-            <Link to={"/"} className='countGoCartBtn'>Continuar comprando</Link>
-            </>
+            <div className='btncontainer'>
+              <Link to={"/cart"} >
+                <Button  className='countGoCartBtn' colorScheme='red'>
+                  Terminar compra
+                </Button>
+                </Link>
+              <Link to={"/"}>
+                <Button rightIcon={<ArrowForwardIcon/>} variant='outline' colorScheme='red'>
+                Continuar comprando
+                </Button>
+              </Link>
+            </div>
 
           ) : (
             <ItemCount 

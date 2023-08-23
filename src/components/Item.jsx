@@ -1,22 +1,21 @@
 import React from 'react'
 import { Card,CardHeader, CardBody, CardFooter,Button, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
-
-const Item = ({name,description,pictureUrl,id}) => {
-  console.log(id)
+const Item = ({name,pictureUrl,id,price}) => {
   return (
-    <Card align='center'>
-        <CardHeader>
-          <Text>{name}</Text>
-          <img src={pictureUrl} alt="" width="100" height="100"/>
+    <Card className='cardItemListContainer' boxShadow='base' align='center'>
+        <CardHeader className='titulocardcontainer'>
+          <Text className='titulocard'>{name}</Text>
         </CardHeader>
+        <img src={pictureUrl} alt="" />
         <CardBody>
-            <Text>{description}</Text>
+          <Text className='pricecard'>Precio <span className='dolar'>$</span>{price}</Text>
         </CardBody>
         <CardFooter>
           <Link to={`/item/${id}`}>
-            <Button colorScheme='blue'>
+            <Button rightIcon={<ArrowForwardIcon/>} variant='outline' colorScheme='red' >
               Detalles
             </Button>
           </Link>
